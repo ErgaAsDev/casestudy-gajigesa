@@ -11,7 +11,7 @@ const Dropdown = ({ accounts }) => {
     sliderValue,
     handleSliderChange,
   } = useSelectChange();
-  console.log(sliderValue);
+
   return (
     <div className="dropdown-container">
       <div className="dropdown-frame">

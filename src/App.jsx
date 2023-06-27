@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAccountsData } from "./actions/accountActions";
-import Dropdown from "./components/Dropdown";
+import AkunContainer from "./components/AkunContainer";
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="main-container">
-      <Dropdown accounts={accounts} />
+      <AkunContainer accounts={accounts} />
     </div>
   );
 }
