@@ -133,6 +133,17 @@ button:focus-visible {
   padding-right: 14px;
 }
 
+.salary-amount {
+  border: 0;
+  margin: 12px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.edit-icon {
+  cursor: pointer;
+}
+
 /* SLIDER */
 .slider {
   width: 100%;
@@ -149,7 +160,7 @@ input[type="range"] {
   -webkit-appearance: none;
   margin-right: 15px;
   width: 100%;
-  height: 7px;
+  height: 12px;
   background: rgba(230, 173, 173, 0.6);
   border-radius: 5px;
   background-image: linear-gradient(#ff4500, #ff4500);

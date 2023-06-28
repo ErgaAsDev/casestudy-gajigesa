@@ -12,7 +12,6 @@ function App() {
     dispatch(fetchAccountsData());
   }, [dispatch]);
 
-  console.log(accounts);
   if (!accounts) {
     return <div>Loading...</div>;
   }

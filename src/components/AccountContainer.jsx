@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdEdit } from "react-icons/md";
 import useSelectChange from "../hooks/useSelectChange";
 
@@ -6,11 +6,24 @@ const Dropdown = ({ accounts }) => {
   const {
     selectRef,
     handleSelectChange,
+    handleInputChange,
     selectedNumber,
     sliderRef,
+    inputRef,
     sliderValue,
     handleSliderChange,
   } = useSelectChange();
+
+  const [focus, setFocus] = useState(false);
+
+  const inputAttributes = {
+    className: "salary-amount",
+    type: "number",
+    value: selectedNumber,
+    ref: inputRef,
+    onChange: handleInputChange,
+    autoFocus: true,
+  };
 
   return (
     <div className="dropdown-container">
@@ -22,9 +35,6 @@ const Dropdown = ({ accounts }) => {
             ref={selectRef}
             onChange={handleSelectChange}
           >
-            <option value="Akun Gaji" style={{ backgroundColor: "#fff" }}>
-              Akun Gaji
-            </option>
             {accounts.map((account) => (
               <option
                 key={account.id}
@@ -40,8 +50,12 @@ const Dropdown = ({ accounts }) => {
         </div>
       </div>
       <div className="salary-frame">
-        <h4>{selectedNumber}</h4>
-        <MdEdit />
+        {focus ? (
+          <input {...inputAttributes} />
+        ) : (
+          <h4 className="salary-amount">{selectedNumber}</h4>
+        )}
+        <MdEdit className="edit-icon" onClick={() => setFocus(!focus)} />
       </div>
       <hr />
       <div className="slider-frame">

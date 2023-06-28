@@ -1,5 +1,11 @@
 const accountsData = [
   {
+    id: 0,
+    name: "Akun Gaji",
+    color: "#fff",
+    gaji: 100,
+  },
+  {
     id: 1,
     name: "Account 1",
     color: "rgb(255, 0, 0)",
@@ -15,7 +21,7 @@ const accountsData = [
     id: 3,
     name: "Account 3",
     color: "rgb(255, 255, 0)",
-    gaji: 300012,
+    gaji: 800012,
   },
   {
     id: 4,
@@ -27,7 +33,7 @@ const accountsData = [
     id: 5,
     name: "Account 5",
     color: "rgb(0, 255, 0)",
-    gaji: 100012,
+    gaji: 1000012,
   },
   {
     id: 6,
