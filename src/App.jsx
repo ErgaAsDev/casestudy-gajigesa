@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAccountsData } from "./actions/accountActions";
 import AccountContainer from "./components/AccountContainer";
-
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +17,9 @@ function App() {
 
   return (
     <div className="main-container">
-      <AccountContainer accounts={accounts} />
+      <Suspense fallback={<div>Loading....</div>}>
+        <AccountContainer accounts={accounts} />
+      </Suspense>
     </div>
   );
 }

@@ -1,6 +1,8 @@
-import React from "react";
-import { MdEdit } from "react-icons/md";
+import React, { useState } from "react";
+
 import useAccountChange from "../hooks/useAccountChange";
+import SliderFrame from "./SliderFrame";
+import DropdownFrame from "./DropdownFrame";
 
 const AccountContainer = ({ accounts }) => {
   const {
@@ -12,68 +14,39 @@ const AccountContainer = ({ accounts }) => {
     inputRef,
     sliderValue,
     handleSliderChange,
-    
-  } = useAccountChange(accounts);
+  } = useAccountChange();
 
-  const inputAttributes = {
-    className: "salary-amount",
-    type: "number",
-    value: selectedNumber,
-    ref: inputRef,
-    onChange: handleInputChange,
-    autoFocus: true,
+  const [showSlider, setShowSlider] = useState(false); // New state to handle visibility
+
+  // Function to handle the select change and toggle the visibility of SliderFrame
+  const handleAccountSelectChange = () => {
+    handleSelectChange(); // Call the original handleSelectChange from the custom hook
+    const selectedIndex = selectRef.current.selectedIndex;
+    const selectedOption = selectRef.current.options[selectedIndex];
+    const hasSlider = selectedOption.getAttribute("data-has-slider");
+    setShowSlider(hasSlider === "true");
   };
-
-  
 
   return (
     <div className="dropdown-container" data-testid="dropdown-component">
-      <div className="dropdown-frame">
-        <h3>Withdraw Amount</h3>
-        <div className="select-container">
-          <select
-            id="accountDropdown"
-            ref={selectRef}
-            onChange={handleSelectChange}
-          >
-            {accounts.map((account) => (
-              <option
-                key={account.id}
-                value={account.name}
-                data-color={account.color}
-                data-gaji={account.gaji}
-                data-has-slider={account.hasSlider}
-                style={{ backgroundColor: account.color }}
-              >
-                {account.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-      <div className="salary-frame">
-        <input {...inputAttributes} data-testid="salary-input" />
-        <MdEdit className="edit-icon" />
-      </div>
+      <DropdownFrame
+        selectedNumber={selectedNumber}
+        selectRef={selectRef}
+        inputRef={inputRef}
+        handleAccountSelectChange={handleAccountSelectChange}
+        handleInputChange={handleInputChange}
+        accounts={accounts}
+      />
       <hr />
-      
-        <div className="slider-frame">
-          <input
-            className="slider"
-            type="range"
-            min={100}
-            max={2085000}
-            step={1}
-            ref={sliderRef}
-            value={sliderValue}
-            onChange={handleSliderChange}
-          />
-          <div className="min-max">
-            <h4>Rp 100</h4>
-            <h4>Rp 2.085.000</h4>
-          </div>
-        </div>
-      
+      {showSlider && ( // Render SliderFrame based on showSlider state
+        <SliderFrame
+          sliderRef={sliderRef}
+          sliderValue={sliderValue}
+          handleSliderChange={handleSliderChange}
+          showSlider={showSlider}
+          selectedNumber={selectedNumber}
+        />
+      )}
     </div>
   );
 };

@@ -3,7 +3,7 @@ const accountsData = [
     id: 0,
     name: "Akun Gaji",
     color: "whitesmoke",
-    gaji: 100,
+    gaji: "",
     hasSlider: false
   },
   {
