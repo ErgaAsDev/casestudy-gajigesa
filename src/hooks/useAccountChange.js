@@ -1,14 +1,17 @@
-import React from "react";
+import { useRef, useState } from "react";
 
-const useSliderChange = () => {
+const useAccountChange = () => {
   const selectRef = useRef(null);
   const sliderRef = useRef(null);
+  const inputRef = useRef(null);
   const [selectedNumber, setSelectedNumber] = useState("");
   const [sliderValue, setSliderValue] = useState(100);
 
-  const handleNumberChange = () => {
+  const handleSelectChange = () => {
     const selectedIndex = selectRef.current.selectedIndex;
     const selectedOption = selectRef.current.options[selectedIndex];
+    const selectedColor = selectedOption.getAttribute("data-color");
+    selectRef.current.style.backgroundColor = selectedColor;
     const selectedNumber = selectedOption.getAttribute("data-gaji");
     if (Number(selectedNumber) >= 100) {
       const percentage =
@@ -29,7 +32,25 @@ const useSliderChange = () => {
     sliderRef.current.style.backgroundSize = `${percentage}% 100%`;
   };
 
-  return { handleNumberChange, handleSliderChange, selectRef, selectedNumber, sliderValue};
+  const handleInputChange = (e) => {
+    const inputValue = inputRef.current.value;
+    setSelectedNumber(e.target.value);
+    setSliderValue(Number(inputValue));
+    const percentage = ((inputValue - 100) / (2085000 - 100)) * 100;
+    sliderRef.current.style.backgroundSize = `${percentage}% 100%`;
+  };
+
+  return {
+    selectRef,
+    sliderRef,
+    inputRef,
+    handleSelectChange,
+    handleSliderChange,
+    handleInputChange,
+    selectedNumber,
+    setSelectedNumber,
+    sliderValue,
+  };
 };
 
-export default useSliderChange;
+export default useAccountChange;

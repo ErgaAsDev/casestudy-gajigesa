@@ -74,6 +74,10 @@ button:focus-visible {
 .main-container {
   width: 400px;
   margin: 0 auto;
+  /* border: 1px solid black; */
+  padding: 20px;
+  border-radius: 16px;
+  background-color: whitesmoke;
 }
 
 /* DROPDOWN FRAME */
@@ -138,6 +142,8 @@ button:focus-visible {
   margin: 12px 0;
   font-size: 14px;
   font-weight: 500;
+  padding: 4px;
+  background-color: whitesmoke;
 }
 
 .edit-icon {

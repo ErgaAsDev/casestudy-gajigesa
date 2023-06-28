@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdEdit } from "react-icons/md";
-import useSelectChange from "../hooks/useSelectChange";
+import useAccountChange from "../hooks/useAccountChange";
 
 const Dropdown = ({ accounts }) => {
   const {
@@ -12,7 +12,7 @@ const Dropdown = ({ accounts }) => {
     inputRef,
     sliderValue,
     handleSliderChange,
-  } = useSelectChange();
+  } = useAccountChange();
 
   const [focus, setFocus] = useState(false);
 
