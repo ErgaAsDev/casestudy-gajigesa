@@ -40,7 +40,6 @@ const DropdownFrame = ({
           value={selectedNumber}
           ref={inputRef}
           onChange={handleInputChange}
-          autoFocus
           data-testid="salary-input"
         />
         <MdEdit className="edit-icon" />
