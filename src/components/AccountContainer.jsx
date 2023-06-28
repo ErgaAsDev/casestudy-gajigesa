@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { MdEdit } from "react-icons/md";
 import useAccountChange from "../hooks/useAccountChange";
 
@@ -12,7 +12,8 @@ const AccountContainer = ({ accounts }) => {
     inputRef,
     sliderValue,
     handleSliderChange,
-  } = useAccountChange();
+    
+  } = useAccountChange(accounts);
 
   const inputAttributes = {
     className: "salary-amount",
@@ -22,6 +23,8 @@ const AccountContainer = ({ accounts }) => {
     onChange: handleInputChange,
     autoFocus: true,
   };
+
+  
 
   return (
     <div className="dropdown-container" data-testid="dropdown-component">
@@ -39,6 +42,7 @@ const AccountContainer = ({ accounts }) => {
                 value={account.name}
                 data-color={account.color}
                 data-gaji={account.gaji}
+                data-has-slider={account.hasSlider}
                 style={{ backgroundColor: account.color }}
               >
                 {account.name}
@@ -48,33 +52,28 @@ const AccountContainer = ({ accounts }) => {
         </div>
       </div>
       <div className="salary-frame">
-        {/* {focus ? (
-          <input {...inputAttributes} data-testid="salary-input" />
-        ) : (
-          <h4 className="salary-amount">
-            {selectedNumber}
-          </h4>
-        )} */}
         <input {...inputAttributes} data-testid="salary-input" />
         <MdEdit className="edit-icon" />
       </div>
       <hr />
-      <div className="slider-frame">
-        <input
-          className="slider"
-          type="range"
-          min={100}
-          max={2085000}
-          step={1}
-          ref={sliderRef}
-          value={sliderValue}
-          onChange={handleSliderChange}
-        />
-        <div className="min-max">
-          <h4>Rp 100</h4>
-          <h4>Rp 2.085.000</h4>
+      
+        <div className="slider-frame">
+          <input
+            className="slider"
+            type="range"
+            min={100}
+            max={2085000}
+            step={1}
+            ref={sliderRef}
+            value={sliderValue}
+            onChange={handleSliderChange}
+          />
+          <div className="min-max">
+            <h4>Rp 100</h4>
+            <h4>Rp 2.085.000</h4>
+          </div>
         </div>
-      </div>
+      
     </div>
   );
 };

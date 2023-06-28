@@ -11,7 +11,7 @@ This is a React application that implements a dropdown component with dynamic da
 
 ## Technologies Used
 
-- React
+- React + Vite
 - Redux (for state management)
 - CSS (for styling)
 - Jest (for unit testing)
@@ -22,10 +22,10 @@ This is a React application that implements a dropdown component with dynamic da
 To get started with the project, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/ErgaAsDev/casestudy-gajigesa`
-2. Navigate to the project directory: `cd react-dropdown-app`
+2. Navigate to the project directory: `cd casestudy-gajigesa`
 3. Install the dependencies: `npm install`
-4. Start the development server: `npm start`
-5. Open your browser and visit `http://localhost:3000` to see the application
+4. Start the development server: `npm run dev`
+5. Open your browser and visit `http://localhost:5137` to see the application
 
 ## Unit Testing
 
