@@ -30,6 +30,7 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: whitesmoke;
 }
 
 h1 {
@@ -74,10 +75,10 @@ button:focus-visible {
 .main-container {
   width: 400px;
   margin: 0 auto;
-  /* border: 1px solid black; */
   padding: 20px;
   border-radius: 16px;
-  background-color: whitesmoke;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* DROPDOWN FRAME */
@@ -141,9 +142,10 @@ button:focus-visible {
   border: 0;
   margin: 12px 0;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: bold;
+  color: #213547;
   padding: 4px;
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
 }
 
 .edit-icon {

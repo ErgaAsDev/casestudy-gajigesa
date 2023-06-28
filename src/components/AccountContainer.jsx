@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MdEdit } from "react-icons/md";
 import useAccountChange from "../hooks/useAccountChange";
 
-const Dropdown = ({ accounts }) => {
+const AccountContainer = ({ accounts }) => {
   const {
     selectRef,
     handleSelectChange,
@@ -14,8 +14,6 @@ const Dropdown = ({ accounts }) => {
     handleSliderChange,
   } = useAccountChange();
 
-  const [focus, setFocus] = useState(false);
-
   const inputAttributes = {
     className: "salary-amount",
     type: "number",
@@ -26,7 +24,7 @@ const Dropdown = ({ accounts }) => {
   };
 
   return (
-    <div className="dropdown-container">
+    <div className="dropdown-container" data-testid="dropdown-component">
       <div className="dropdown-frame">
         <h3>Withdraw Amount</h3>
         <div className="select-container">
@@ -50,12 +48,15 @@ const Dropdown = ({ accounts }) => {
         </div>
       </div>
       <div className="salary-frame">
-        {focus ? (
-          <input {...inputAttributes} />
+        {/* {focus ? (
+          <input {...inputAttributes} data-testid="salary-input" />
         ) : (
-          <h4 className="salary-amount">{selectedNumber}</h4>
-        )}
-        <MdEdit className="edit-icon" onClick={() => setFocus(!focus)} />
+          <h4 className="salary-amount">
+            {selectedNumber}
+          </h4>
+        )} */}
+        <input {...inputAttributes} data-testid="salary-input" />
+        <MdEdit className="edit-icon" />
       </div>
       <hr />
       <div className="slider-frame">
@@ -78,4 +79,4 @@ const Dropdown = ({ accounts }) => {
   );
 };
 
-export default Dropdown;
+export default AccountContainer;

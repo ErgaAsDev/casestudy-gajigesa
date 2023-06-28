@@ -2,7 +2,7 @@ const accountsData = [
   {
     id: 0,
     name: "Akun Gaji",
-    color: "#fff",
+    color: "whitesmoke",
     gaji: 100,
   },
   {
@@ -55,7 +55,7 @@ export const fetchAccounts = async () => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(accountsData);
-      }, 1000); // Delayed response for demonstration purposes
+      }, 200); // Delayed response for demonstration purposes
     });
   } catch (error) {
     console.error("Error fetching accounts:", error);
