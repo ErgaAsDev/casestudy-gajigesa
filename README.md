@@ -21,7 +21,7 @@ This is a React application that implements a dropdown component with dynamic da
 
 To get started with the project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/react-dropdown-app.git`
+1. Clone the repository: `git clone https://github.com/ErgaAsDev/casestudy-gajigesa`
 2. Navigate to the project directory: `cd react-dropdown-app`
 3. Install the dependencies: `npm install`
 4. Start the development server: `npm start`
